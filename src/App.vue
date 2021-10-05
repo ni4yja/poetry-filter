@@ -1,26 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="half">
+      <Filters :filterPosts="filterPosts" />
+    </div>
+    <div class="half">
+      <Posts :posts="posts"/>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Filters from "./components/Filters.vue";
+import Posts from "./components/Posts.vue";
+
+//import MOCK_DATA from "./MOCK_DATA.json"
+import POETRY from "./POETRY.json"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Filters,
+    Posts,
+  },
+  data () {
+    return {
+      posts: POETRY
+    }
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.container {
+  display: flex;
+  margin: 20px;
+}
+
+.half {
+  width: 40%;
 }
 </style>
