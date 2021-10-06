@@ -1,11 +1,10 @@
 <template>
-  <h1>Posts</h1>
   <div
     v-for="post in posts"
     :key="post.id"
   >
     <h2>{{ post.title }}</h2>
-    <p>{{ post.quote }}</p>  
+    <p>{{ post.quote }}</p>
   </div>
 </template>
 
@@ -13,7 +12,7 @@
 
 export default {
   props: [
-    'posts'
+    "posts"
   ]
 }
 </script>

@@ -26,6 +26,16 @@ export default {
     return {
       posts: POETRY
     }
+  },
+  methods: {
+    filterPosts (authorName) {
+      this.posts = POETRY
+      if (authorName !== "*Всі") {
+        this.posts = this.posts.filter(post => {
+          return post.author === authorName
+        })
+      }
+    }
   }
 };
 </script>

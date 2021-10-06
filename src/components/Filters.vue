@@ -1,22 +1,19 @@
 <template>
-  <h1>Filters</h1>
-
-  <p v-for="filter in filters" :key="filter">
+  <p v-for="filter in sorted" :key="filter" @click="() => filterPosts(filter)">
     {{ filter }}
   </p>
 </template>
 
 <script>
-const filters = [
-  'Жадан',
-  'Андрухович'
-]
+const filters = ["*Всі", "Жадан", "Андрухович", "Калитко", "Семенчук", "Іздрик", "Лазуткін", "Білоцерківець", "Шувалова"];
+const sorted = filters.sort((a, b) => a.localeCompare(b))
 
 export default {
-  data () {
+  props: ["filterPosts"],
+  data() {
     return {
-      filters
-    }
-  }
-}
+      sorted
+    };
+  },
+};
 </script>
