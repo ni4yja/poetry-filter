@@ -1,6 +1,6 @@
 <template>
-  <p v-for="filter in sorted" :key="filter" @click="() => filterPosts(filter)">
-    {{ filter }}
+  <p v-for="filter in sorted" :key="filter" @click="() => filterPosts(filter)" class="m-3">
+    <span class="tag is-medium is-link is-light">{{ filter }}</span>
   </p>
 </template>
 

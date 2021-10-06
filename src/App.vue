@@ -1,10 +1,17 @@
 <template>
-  <div class="container">
-    <div class="half">
-      <Filters :filterPosts="filterPosts" />
+  <section class="hero is-medium is-warning">
+    <div class="hero-body">
+      <h1 class="title">13 цитат про осінь</h1>
     </div>
-    <div class="half">
-      <Posts :posts="posts"/>
+  </section>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-third">
+        <Filters :filterPosts="filterPosts" />
+      </div>
+      <div class="column">
+        <Posts :posts="posts" />
+      </div>
     </div>
   </div>
 </template>
@@ -14,7 +21,7 @@ import Filters from "./components/Filters.vue";
 import Posts from "./components/Posts.vue";
 
 //import MOCK_DATA from "./MOCK_DATA.json"
-import POETRY from "./POETRY.json"
+import POETRY from "./POETRY.json";
 
 export default {
   name: "App",
@@ -22,31 +29,20 @@ export default {
     Filters,
     Posts,
   },
-  data () {
+  data() {
     return {
-      posts: POETRY
-    }
+      posts: POETRY,
+    };
   },
   methods: {
-    filterPosts (authorName) {
-      this.posts = POETRY
+    filterPosts(authorName) {
+      this.posts = POETRY;
       if (authorName !== "*Всі") {
-        this.posts = this.posts.filter(post => {
-          return post.author === authorName
-        })
+        this.posts = this.posts.filter((post) => {
+          return post.author === authorName;
+        });
       }
-    }
-  }
+    },
+  },
 };
 </script>
-
-<style scoped>
-.container {
-  display: flex;
-  margin: 20px;
-}
-
-.half {
-  width: 40%;
-}
-</style>
