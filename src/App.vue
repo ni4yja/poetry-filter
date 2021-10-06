@@ -1,6 +1,6 @@
 <template>
   <section class="hero is-medium is-warning">
-    <div class="hero-body">
+    <div class="hero-body has-text-centered">
       <h1 class="title">13 цитат про осінь</h1>
     </div>
   </section>
