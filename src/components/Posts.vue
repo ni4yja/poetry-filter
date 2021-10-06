@@ -7,7 +7,8 @@
     <div class="card-content">
       <div class="content">
         <h2 class="title is-4">{{ post.title }}</h2>
-        {{ post.quote }}
+        <p>{{ post.quote }}</p>
+        <em>{{ post.author }}</em>
       </div>
     </div>
   </div>

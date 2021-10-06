@@ -1,6 +1,17 @@
 <template>
-  <p v-for="filter in sorted" :key="filter" @click="() => filterPosts(filter)" class="m-3">
-    <span class="tag is-medium is-link is-light">{{ filter }}</span>
+  <label for="search" style="font-size: 0">
+    Пошук
+    <input
+      id="search"
+      v-model="word"
+      @keypress="search(word)"
+      class="input m-3"
+      type="text"
+      placeholder="Пошук за назвою"
+    />
+  </label>
+  <p v-for="filter in sorted" :key="filter" class="m-3">
+    <span @click="() => filterPosts(filter)" class="tag is-medium is-link is-light">{{ filter }}</span>
   </p>
 </template>
 
@@ -9,10 +20,11 @@ const filters = ["*Всі", "Жадан", "Андрухович", "Калитк�
 const sorted = filters.sort((a, b) => a.localeCompare(b))
 
 export default {
-  props: ["filterPosts"],
+  props: ["filterPosts", "search"],
   data() {
     return {
-      sorted
+      sorted,
+      word: ''
     };
   },
 };
